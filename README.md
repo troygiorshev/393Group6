@@ -5,3 +5,4 @@ Members:
 * Troy Giorshev
 * Adam Gronowski
 * Declan Colwell
+* Chelsey Kurylo
