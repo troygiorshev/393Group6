@@ -6,3 +6,11 @@ Members:
 * Adam Gronowski
 * Declan Colwell
 * Chelsey Kurylo
+
+
+## Running
+
+- Open the file you wish to run
+- Open stateSpace.mdl
+- Add system6 folder to path
+- Run!
