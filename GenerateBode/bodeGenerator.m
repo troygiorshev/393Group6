@@ -20,13 +20,13 @@ omega = 10^indexOmega;
 while(omega<10^stopOmega)
 
     omega = 10^indexOmega;
+    endTime = (1/omega)*2*pi*2
     
-    stepSize = floor((1/omega)/100)
-    stepSize = 50
+    stepSize = endTime/100
 
     refineOutput = 4;
 
-    set(handles.axisEnd, 'String', (1/omega)* 2*pi * 2 );
+    set(handles.axisEnd, 'String', endTime );
     set(handles.stepSize, 'String', stepSize);
     s = num2str(omega);
     sin = strcat('sin(',s,'*t)')
