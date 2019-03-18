@@ -11,8 +11,8 @@ handles = guidata(hfig);
 
 newOutput = [ ];
 
-indexOmega = 0;
-stopOmega = 3;
+indexOmega = -2;
+stopOmega = -1;
 omega = 10^indexOmega;
 
 % This goes inclusive on both ends [indexOmega,stopOmega]
@@ -20,12 +20,13 @@ omega = 10^indexOmega;
 while(omega<10^stopOmega)
 
     omega = 10^indexOmega;
-    logOmega = floor(log10(omega));
-    stepSize = 10^(-logOmega-2);
+    
+    stepSize = floor((1/omega)/100)
+    stepSize = 50
 
     refineOutput = 4;
 
-    set(handles.axisEnd, 'String', 1/omega * 15 );
+    set(handles.axisEnd, 'String', (1/omega)* 2*pi * 2 );
     set(handles.stepSize, 'String', stepSize);
     s = num2str(omega);
     sin = strcat('sin(',s,'*t)')
@@ -133,7 +134,7 @@ while(omega<10^stopOmega)
     end
 
 
-    outputArray = [omega, decibels, degrees, time, success, successTime]
+    outputArray = [omega, decibels, degrees]
     newOutput = vertcat(newOutput,outputArray);
     indexOmega = indexOmega + 0.25;
 end
