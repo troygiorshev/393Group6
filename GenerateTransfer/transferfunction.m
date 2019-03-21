@@ -2,10 +2,9 @@
 
 close all;
 A = phase(:,1);
-B = phase(:,2);
+B = phase(:,2)*-1;
 C = amplitude(:,1);
 D = amplitude(:,2);
-
 
 fontSize = 18;
 set(0, 'defaultTextFontSize',20);
@@ -30,9 +29,11 @@ hold on
 
 z1 = 10^(-0.9);
 z2 = 10^(1.1);
-%z3 = 10^(-.6);
+% z3 = 10^(-.6);
 % z4 = 10^(1.3);
 % z5 = 10^();
+
+zs = [z1 -z2];
 
 % Poles [essentially where there is a "decrease in slope"]
 
@@ -43,10 +44,13 @@ z2 = 10^(1.1);
  %p5 = 10^(-1.9);
 % p6 = 10^();
 
+ps = [-p1 -p2 -p3 -p4];
+
 gain=1;
-sys = zpk([-z1 -z2 ],[-p1 -p2 -p3 -p4 ],[gain]);
+sys = zpk(zs,ps,[gain]);
 figure(4)
 bode(sys)
+title("Bode for Unscaled System, Theoretical")
 grid on
 
 % % Making this bigger makes the graph go up
@@ -58,10 +62,11 @@ grid on
 %K = 10^(delta/20); %
 K=10^5.25;
 
-sys2 = zpk([-z1 -z2 ],[-p1 -p2 -p3 -p4 ],[K]);
+sys2 = zpk(zs,ps,[K]);
 
 figure(3);
 bode(sys2);
+title("Bode for Scaled system, Theoretical")
 
 figure(1);
 hold on
@@ -70,10 +75,10 @@ mag=permute(magraw, [3,1,2]);
 semilogx(wout, 20*log10(mag))
 grid on;
 
- figure(2);
- hold on
- phasebode = permute(aphaseraw,[3,1,2]);
- semilogx(wout, 20*log10(phasebode)*pi)
- grid on;
+figure(2);
+hold on
+phasebode = permute(aphaseraw,[3,1,2]);
+semilogx(wout, phasebode)
+grid on;
 
 % how many zeros are in rhp adds 180 to the phase plot at low frequencies
