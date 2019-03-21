@@ -49,14 +49,14 @@ figure(4)
 bode(sys)
 grid on
 
-% % Making this bigger makes the graph go up
-% desired=16000000;
-% magwanted=-94;
-% delta = 20*log10(desired)-20*log10(magwanted);
-% %delta = 20*log10(68)-20*log10(.002);
+% Making this bigger makes the graph go up
+desired=16000000;
+magwanted=-94;
+delta = 20*log10(desired)-20*log10(magwanted);
+%delta = 20*log10(68)-20*log10(.002);
 
-%K = 10^(delta/20); %
-K=10^5.25;
+K = 10^(delta/20); %
+K=10^
 
 sys2 = zpk([-z1 -z2 ],[-p1 -p2 -p3 -p4 ],[K]);
 
@@ -73,7 +73,7 @@ grid on;
  figure(2);
  hold on
  phasebode = permute(aphaseraw,[3,1,2]);
- semilogx(wout, 20*log10(phasebode)*pi)
+ semilogx(wout, 20*log10(phasebode))
  grid on;
 
 % how many zeros are in rhp adds 180 to the phase plot at low frequencies
