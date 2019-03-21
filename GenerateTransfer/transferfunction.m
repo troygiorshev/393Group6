@@ -14,6 +14,7 @@ semilogx(C,D)
 xlabel("Frequency \omega",'fontsize',fontSize)
 ylabel("dB",'fontsize',fontSize)
 title("Magnitude Plot",'fontsize',fontSize)
+xlim([10^(-4) 10^4])
 grid on
 hold on
 
@@ -22,6 +23,7 @@ semilogx(A,B)
 xlabel("Frequency \omega",'fontsize',fontSize)
 ylabel("deg",'fontsize',fontSize)
 title("Phase Plot",'fontsize',fontSize)
+xlim([10^(-4) 10^4])
 grid on
 hold on
 
