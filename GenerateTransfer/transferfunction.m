@@ -70,17 +70,21 @@ figure(3);
 bode(sys2);
 title("Bode for Scaled system, Theoretical")
 
+
+
 figure(1);
 hold on
 [magraw, aphaseraw, wout]=bode(sys2);
 mag=permute(magraw, [3,1,2]);
 semilogx(wout, 20*log10(mag))
+legend('Experimental','Heuristic')
 grid on;
 
 figure(2);
 hold on
 phasebode = permute(aphaseraw,[3,1,2]);
 semilogx(wout, phasebode)
+legend('Experimental','Heuristic')
 grid on;
 
 % how many zeros are in rhp adds 180 to the phase plot at low frequencies
