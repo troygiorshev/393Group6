@@ -50,10 +50,10 @@ ps = [-p1 -p2 -p3 -p4];
 
 gain=1;
 sys = zpk(zs,ps,[gain]);
-figure(4)
-bode(sys)
-title("Bode for Unscaled System, Theoretical")
-grid on
+% figure(4)
+% bode(sys)
+% title("Bode for Unscaled System, Theoretical")
+% grid on
 
 % % Making this bigger makes the graph go up
 % desired=16000000;
@@ -66,11 +66,9 @@ K=10^5.25;
 
 sys2 = zpk(zs,ps,[K]);
 
-figure(3);
-bode(sys2);
-title("Bode for Scaled system, Theoretical")
-
-
+% figure(3);
+% bode(sys2);
+% title("Bode for Scaled system, Theoretical")
 
 figure(1);
 hold on
@@ -86,5 +84,7 @@ phasebode = permute(aphaseraw,[3,1,2]);
 semilogx(wout, phasebode)
 legend('Experimental','Heuristic')
 grid on;
+
+trans = tf(sys2);
 
 % how many zeros are in rhp adds 180 to the phase plot at low frequencies
