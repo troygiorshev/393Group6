@@ -42,13 +42,16 @@ L_sym = vpa(L_sym, 4);
 
 %% PID
 
-Kp = -1;
+Kp = -7;
 Ki = 0;
-Kd = 50;
+Kd = 0.5;
 
 contr = pid(Kp, Ki, Kd, 100);
 
 C = tf(contr);
+
+TF = C*L/(1+C*L)
+pole(TF)
 %% Symbolic stuff
 
 C_sym = P + 0/s + 0*s;
@@ -72,6 +75,9 @@ tfn
 pole(tfn)
 
 step(tfn)
+
+thing = step(L)
+xlim([0,100])
 
 %% Graphing
 
