@@ -40,6 +40,8 @@ L = tf(sys2);
 L_sym = poly2sym(cell2mat(num),s)/poly2sym(cell2mat(den),s);
 L_sym = vpa(L_sym, 4);
 
+nyquist(L)
+
 %% PID
 
 Kp = -7;
