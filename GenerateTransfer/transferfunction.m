@@ -3,6 +3,7 @@
 %% Get the transfer function
 
 close all;
+clc;
 
 syms s P I D
 
@@ -33,18 +34,15 @@ sys = zpk(zs,ps,[gain]);
 K=10^5.25;
 
 sys2 = zpk(zs,ps,[K]);
-
 L = tf(sys2);
 
 [num,den] = tfdata(L);
 L_sym = poly2sym(cell2mat(num),s)/poly2sym(cell2mat(den),s);
 L_sym = vpa(L_sym, 4);
 
-nyquist(L)
-
 %% PID
 
-Kp = -7;
+Kp = -1;
 Ki = 0;
 Kd = 0.5;
 
@@ -52,8 +50,23 @@ contr = pid(Kp, Ki, Kd, 100);
 
 C = tf(contr);
 
-TF = C*L/(1+C*L)
+
+% TF = C*L/(1+C*L) DONT DO THIS https://www.mathworks.com/help/control/examples/using-feedback-to-close-feedback-loops.html
+% It does the poles wrong.
+
+
+TF = tf(C*L,(1+C*L)) %THIS IS STILL WRONG TOO
+% YOU can see that it's wrong, just make the denominator parameter literally whatever
+% you want.  It only takes into account the numerator parameter
+
+TF = feedback(L*C,1)
 pole(TF)
+
+step(TF)
+ 
+figure()
+
+nyqlog(TF)
 %% Symbolic stuff
 
 C_sym = P + 0/s + 0*s;
