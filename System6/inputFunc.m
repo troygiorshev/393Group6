@@ -1,3 +1,3 @@
 function [ f ] = inputFunc( t )
-	f = sin((t-10)^2);
+	f = 20*cos(t);
 end
