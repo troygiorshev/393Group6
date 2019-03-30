@@ -36,30 +36,20 @@ K=10^5.25;
 sys2 = zpk(zs,ps,[K]);
 L = tf(sys2);
 
-[num,den] = tfdata(L);
-L_sym = poly2sym(cell2mat(num),s)/poly2sym(cell2mat(den),s);
-L_sym = vpa(L_sym, 4);
-
 %% PID
+
+close all;
+clc;
 
 Kp = -1;
 Ki = 0;
-Kd = 0.5;
+Kd = 0;
 
 contr = pid(Kp, Ki, Kd, 100);
 
 C = tf(contr);
 
-
-% TF = C*L/(1+C*L) DONT DO THIS https://www.mathworks.com/help/control/examples/using-feedback-to-close-feedback-loops.html
-% It does the poles wrong.
-
-
-TF = tf(C*L,(1+C*L)) %THIS IS STILL WRONG TOO
-% YOU can see that it's wrong, just make the denominator parameter literally whatever
-% you want.  It only takes into account the numerator parameter
-
-TF = feedback(L*C,1)
+TF = feedback(C*L,1) % This is the only correct way to do this
 pole(TF)
 
 step(TF)
@@ -67,33 +57,6 @@ step(TF)
 figure()
 
 nyqlog(TF)
-%% Symbolic stuff
-
-C_sym = P + 0/s + 0*s;
-
-TF_sym = vpa((L_sym * C_sym)/(1 + L_sym * C_sym),3);
-
-TF_sym = vpa(simplify(TF_sym,'Steps',5000),3)
-
-[n,d] = numden(TF_sym);
-
-n = vpa(n,3)
-d = vpa(d,3)
-
-roots = vpa(solve(d==0,s),2)
-%% Non symbolic stuff
-
-tfn = L*C/(1+L*C)
-
-tfn
-
-pole(tfn)
-
-step(tfn)
-
-thing = step(L)
-xlim([0,100])
-
 %% Graphing
 
 A = phase(:,1);
@@ -122,14 +85,6 @@ xlim([10^(-4) 10^4])
 grid on
 hold on
 
-% figure(4)
-% bode(sys)
-% title("Bode for Unscaled System, Theoretical")
-% grid on
-
-% figure(3);
-% bode(sys2);
-% title("Bode for Scaled system, Theoretical")
 
 figure(1);
 hold on
