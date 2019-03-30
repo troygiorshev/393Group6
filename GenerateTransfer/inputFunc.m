@@ -1,3 +1,3 @@
 function [ f ] = inputFunc( t )
-	f = t;
+	f = 1;
 end
