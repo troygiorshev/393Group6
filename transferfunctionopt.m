@@ -49,14 +49,14 @@ L = tf(sys);
     
 zp=[-.75   1.1    2.155   -1.87    2.38    2.78];
 error = 100000;
-zpfinal=[0 0 0 0 0 0];
+zpfinal=[-.75   1.1    2.155   -1.87    2.38    2.78];
 
 kfinal=0;
 
 for i = 1:6
     start=zp(i)-.5;
     endval=zp(i)+.5;
-    for j=start:.01:endval
+    for j=start:.001:endval
         zp(i)=j;
         zs = [10^(zp(1)) -10^(zp(2))];
         ps = [-10^(zp(3)) -10^(zp(4)) -10^(zp(5)) -10^(zp(6))];
@@ -69,16 +69,16 @@ for i = 1:6
             M = evalfr(sys1,10^(2));
             delta = 20*log10(M1)-20*log10(M);
             K = 10^(delta/20); 
+            K=real(K);
             sys = zpk(zs,ps,[K]);
             L=tf(sys);
             out2 = step(L, (time));
             output= (real(out2)).';
-            %mean1= mean((out1-output).^2);
             RMSE = sqrt(mean((out1-output).^2));
             if RMSE<error
                 error = RMSE;
                 zpfinal(i)=j;
-                kfinal=k;
+                kfinal=K;
             end
         %end
     end
