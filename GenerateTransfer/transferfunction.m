@@ -5,8 +5,6 @@
 close all;
 clc;
 
-syms s P I D
-
 % Zeros [essentially where there is an "increase in slope"]
 
 z1 = 10^(-0.9);
@@ -31,9 +29,9 @@ ps = [-p1 -p2 -p3 -p4];
 gain=1;
 sys = zpk(zs,ps,[gain]);
 
-K=10^5.25;
+K=1/-evalfr(sys,0);
 
-sys2 = zpk(zs,ps,[K]);
+sys2 = zpk(zs,ps,K);
 L = tf(sys2);
 
 %% PID
