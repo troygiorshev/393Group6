@@ -68,7 +68,7 @@ Model {
       $ObjectID		      3
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [429.0, 149.0, 705.0, 540.0]
+      Location		      [1019.0, 374.0, 705.0, 540.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		4
@@ -92,7 +92,7 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[980.0, 562.0]
+	Extents			[651.0, 359.0]
 	ZoomFactor		[1.0]
 	Offset			[0.0, 0.0]
       }
@@ -107,17 +107,17 @@ Model {
 	UserData		""
 	Floating		[0]
 	DockPosition		"Right"
-	Width			[426]
-	Height			[320]
+	Width			[640]
+	Height			[480]
       }
       WindowState	      "AAAA/wAAAAD9AAAAAgAAAAAAAAC9AAAB+PwCAAAAA/sAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAA"
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
-      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAACTAP///wAAAAEAAAAAAAAAAPwCA"
+      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABjAP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAAUwD///8AAAQMAAACgAAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "QBjAHQAbwByAAAAAAD/////AAAAOQD///8AAAKxAAABoAAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
-      "////wEAAACp/////wAAAAAAAAAA/////wEAAAEu/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAHX/////wAAAAAAAAAA/"
-      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAPL/////wAAAAAAAAAA/"
+      "////wEAAAB5/////wAAAAAAAAAA/////wEAAADa/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAFT/////wAAAAAAAAAA/"
+      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAKC/////wAAAAAAAAAA/"
       "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
     }
   }
@@ -129,7 +129,7 @@ Model {
   LastModifiedBy	  "smk"
   ModifiedDateFormat	  "%<Auto>"
   LastModifiedDate	  "Wed Feb 14 16:33:00 2018"
-  RTWModifiedTimeStamp	  475673700
+  RTWModifiedTimeStamp	  475862205
   ModelVersionFormat	  "1.%<AutoIncrement:196>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -243,8 +243,8 @@ Model {
 	  Version		  "1.18.1"
 	  DisabledProps		  []
 	  Description		  ""
-	  StartTime		  "5"
-	  StopTime		  "15"
+	  StartTime		  "0"
+	  StopTime		  "10"
 	  AbsTol		  "auto"
 	  AutoScaleAbsTol	  on
 	  FixedStep		  "auto"
@@ -964,8 +964,8 @@ Model {
 	  Version		  "1.18.1"
 	  DisabledProps		  []
 	  Description		  ""
-	  StartTime		  "5"
-	  StopTime		  "15"
+	  StartTime		  "0"
+	  StopTime		  "10"
 	  AbsTol		  "auto"
 	  AutoScaleAbsTol	  on
 	  FixedStep		  "auto"
@@ -1798,7 +1798,7 @@ Model {
   }
   System {
     Name		    "stateSpace"
-    Location		    [429, 149, 1134, 689]
+    Location		    [1019, 374, 1724, 914]
     Open		    on
     PortBlocksUseCompactNotation off
     SetExecutionDomain	    off

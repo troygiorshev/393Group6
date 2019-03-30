@@ -7,7 +7,7 @@ clc;
 
 % Zeros [essentially where there is an "increase in slope"]
 
-z1 = 10^(-0.9);
+z1 = 10^(-0.75);
 z2 = 10^(1.1);
 % z3 = 10^(-.6);
 % z4 = 10^(1.3);
@@ -17,10 +17,10 @@ zs = [z1 -z2];
 
 % Poles [essentially where there is a "decrease in slope"]
 
- p1 = 10^(2.45);
- p2 = 10^(-1.9);
- p3 = 10^(2.15);
- p4 = 10^(2.75);
+ p1 = 10^(2.155);
+ p2 = 10^(-1.87);
+ p3 = 10^(2.38);
+ p4 = 10^(2.78);
  %p5 = 10^(-1.9);
 % p6 = 10^();
 
