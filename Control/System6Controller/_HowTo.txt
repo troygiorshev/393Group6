@@ -1,0 +1,3 @@
+Open stateSpace.mdl
+
+Run `blackBox` in the console

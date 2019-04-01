@@ -31,10 +31,20 @@ K=1/-evalfr(sys,0);
 sys = zpk(zs,ps,K);
 L = tf(sys);
 
+P = -5.2;  
+I = -0.06;  
+D = 15;
+
+contr = pid(P, I, D, 1);
+
+C = tf(contr);
+
+TF = feedback(C*L,1)
+
 %% Set up the lsim
 
-endtime = 1;
-endtimetext = '1'
+endtime = 100;
+endtimetext = '100'
 
 t = 0:0.01:endtime;
 u = 1; % Make the next line the same as this
@@ -57,15 +67,15 @@ blackBox('run_Callback',handles.run,[],handles);
 set(handles.saveFile, 'String', 'output');
 blackBox('save_Callback',handles.save,[],handles);
 
-yy1 = smooth(output.output.time,output.output.signal,0.1,'loess');
-time=0:0.01:endtime;
-out1 = interp1(output.output.time,yy1,time);
+% yy1 = smooth(output.output.time,output.output.signal,0.1,'loess');
+% time=0:0.01:endtime;
+% out1 = interp1(output.output.time,yy1,time);
 
 %% Run lsim and plot both
 
 figure ()
 hold on
 
-lsim(sys,u,t)
-plot(time,out1,'r')
+lsim(TF,u,t)
+plot(output.output.time,output.output.signal,'r')
 legend("Model1","BlackBox")
