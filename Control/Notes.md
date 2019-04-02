@@ -1,6 +1,6 @@
 # Ziegler-Nichols Method
 
-## Step 1: Find K_u, where the output has stable and consistent oscillations.
+## Step 1: Find K_u, where the output has stable and consistent oscillations
 
 The system is exceedingly sensitive.
 
@@ -21,28 +21,27 @@ K_P = 0.6 * K_u = 1.302
 K_I = 1.2 * K_u / T_u = 53.143  
 K_D = 3 * K_u * T_u / 40 = 0.007975
 
-Which give specifications of:
+Which is clearly unstable, seen in Figure 1-4.
 
-Steady State Error: -0.04  
-Rise Time: 1.34  
-Overshoot: 0  
-Settling Time: 1.34
+## Section 2 - Me Figuring it out
 
-With the Pessen Integral Rule
+BS about how this was done, harping on the nyquist criterion a ton.
 
-K_P = 7 * K_u / 10 = 1.519  
-K_I = 1.75 * K_u / T_u = 77.5  
-K_D = 14 * K_u * T_u / 3 = 0.496
+P = -5.9;  
+I = -0.04;  
+D = 5;
 
-Which give specifications of:
+Figure 2-1 Step response of system
 
-Steady State Error: -0.027  
-Rise Time: 1.11  
-Overshoot: 0  
-Settling Time: 1.11
+Steady State Error: -0.069
+Rise Time: N/A
+Overshoot: N/A
+Settling Time: 23.4
 
-In Conclusion:
+2-2 Nyquist Plot.  Note 2 encirclements of -1, corresponding to the 2 poles in the RHP, so the system is stable.
 
-P = -1.519;  
-I = 77.5;  
-D = 0.496;
+## Section 3 - Blackbox
+
+Figure 3-1 Matlab model implementing the tuned PID controller, with a second order filter.
+
+Figure 3-2 Comparison of the modeled behaviour vs the blackbox behaviour.

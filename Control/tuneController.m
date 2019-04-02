@@ -1,5 +1,3 @@
-%makes a Bode plot
-
 %% Get the transfer function
 
 close all;
@@ -38,10 +36,9 @@ L = tf(sys2);
 %close all;
 clc;
 
-P = -5.2;  
-I = -0.06;  
-D = 15;
-
+P = -5.9;  
+I = -0.04;  
+D = 5;
 contr = pid(P, I, D, 1);
 
 C = tf(contr);
@@ -50,7 +47,7 @@ TF = feedback(C*L,1) % This is the only correct way to do this
 pole(TF)
 
 figure(1)
-endtime = 200;
+endtime = 80;
 t = 0:0.001:endtime;
 u = 0*t + 1;
 lsim(TF,u,t)

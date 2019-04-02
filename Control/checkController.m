@@ -1,6 +1,7 @@
 %% Get the transfer function
 
 close all;
+clear all;
 clc;
 
 % Zeros [essentially where there is an "increase in slope"]
@@ -31,9 +32,9 @@ K=1/-evalfr(sys,0);
 sys = zpk(zs,ps,K);
 L = tf(sys);
 
-P = -5.2;  
-I = -0.06;  
-D = 15;
+P = -5.9;  
+I = -0.04;  
+D = 5;
 
 contr = pid(P, I, D, 1);
 
@@ -47,7 +48,7 @@ endtime = 100;
 endtimetext = '100'
 
 t = 0:0.01:endtime;
-u = 1; % Make the next line the same as this
+u = 0*t + 1; % Make the next line the same as this
 ustr = '1'
 
 %% Get data from blackbox
@@ -65,7 +66,7 @@ set(handles.input, 'String', ustr);
 blackBox('input_Callback',handles.input,[],handles);
 blackBox('run_Callback',handles.run,[],handles);
 set(handles.saveFile, 'String', 'output');
-blackBox('save_Callback',handles.save,[],handles);
+blackBox('s4ave_Callback',handles.save,[],handles);
 
 % yy1 = smooth(output.output.time,output.output.signal,0.1,'loess');
 % time=0:0.01:endtime;
@@ -78,4 +79,4 @@ hold on
 
 lsim(TF,u,t)
 plot(output.output.time,output.output.signal,'r')
-legend("Model1","BlackBox")
+legend("Model","BlackBox")
