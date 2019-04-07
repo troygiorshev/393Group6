@@ -19,7 +19,7 @@ Model {
       UnitExpr		      "inherit"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.201"
+    ComputedModelVersion    "1.202"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -80,7 +80,7 @@ Model {
       $ObjectID		      3
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [1077.0, 317.0, 705.0, 540.0]
+      Location		      [694.0, 272.0, 705.0, 540.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		4
@@ -140,9 +140,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Troy"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Apr 02 13:05:04 2019"
-  RTWModifiedTimeStamp	  476110797
-  ModelVersionFormat	  "1.%<AutoIncrement:201>"
+  LastModifiedDate	  "Thu Apr 04 17:53:10 2019"
+  RTWModifiedTimeStamp	  476301188
+  ModelVersionFormat	  "1.%<AutoIncrement:202>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -1115,7 +1115,7 @@ Model {
   }
   System {
     Name		    "stateSpace"
-    Location		    [1077, 317, 1782, 857]
+    Location		    [694, 272, 1399, 812]
     Open		    on
     PortBlocksUseCompactNotation off
     SetExecutionDomain	    off
@@ -1157,11 +1157,25 @@ Model {
       Expr		      "10"
     }
     Block {
+      BlockType		      S-Function
+      Name		      "Human Body"
+      SID		      "31"
+      Ports		      [1, 1]
+      Position		      [195, 85, 255, 115]
+      ZOrder		      -5
+      ShowName		      off
+      FunctionName	      "csfunc6"
+      Parameters	      "flute,oboe,clarinet"
+      SFunctionDeploymentMode off
+      EnableBusSupport	      off
+      SFcnIsStateOwnerBlock   off
+    }
+    Block {
       BlockType		      Reference
       Name		      "PID Controller"
       SID		      "81"
       Ports		      [1, 1]
-      Position		      [85, 82, 125, 118]
+      Position		      [105, 82, 150, 118]
       ZOrder		      308
       LibraryVersion	      "1.444"
       SourceBlock	      "simulink/Continuous/PID Controller"
@@ -1327,19 +1341,6 @@ Model {
       InitialConditionSetting "Auto"
     }
     Block {
-      BlockType		      S-Function
-      Name		      "S-Function"
-      SID		      "31"
-      Ports		      [1, 1]
-      Position		      [170, 85, 230, 115]
-      ZOrder		      -5
-      FunctionName	      "csfunc6"
-      Parameters	      "flute,oboe,clarinet"
-      SFunctionDeploymentMode off
-      EnableBusSupport	      off
-      SFcnIsStateOwnerBlock   off
-    }
-    Block {
       BlockType		      Sum
       Name		      "Sum"
       SID		      "83"
@@ -1358,7 +1359,7 @@ Model {
       Name		      "Varying Lowpass Filter"
       SID		      "84"
       Ports		      [2, 1]
-      Position		      [285, 93, 415, 162]
+      Position		      [305, 93, 435, 162]
       ZOrder		      653
       LibraryVersion	      "1.341"
       SourceBlock	      "cstblocks/Linear Parameter Varying/Varying Lowpass Filter"
@@ -1372,7 +1373,7 @@ Model {
       BlockType		      Outport
       Name		      "Out1"
       SID		      "1"
-      Position		      [460, 123, 490, 137]
+      Position		      [490, 123, 520, 137]
       ZOrder		      -23
       IconDisplay	      "Port number"
     }
@@ -1380,7 +1381,7 @@ Model {
       ZOrder		      4
       SrcBlock		      "PID Controller"
       SrcPort		      1
-      DstBlock		      "S-Function"
+      DstBlock		      "Human Body"
       DstPort		      1
     }
     Line {
@@ -1415,9 +1416,9 @@ Model {
     }
     Line {
       ZOrder		      18
-      SrcBlock		      "S-Function"
+      SrcBlock		      "Human Body"
       SrcPort		      1
-      Points		      [23, 0; 0, 10]
+      Points		      [21, 0; 0, 10]
       DstBlock		      "Varying Lowpass Filter"
       DstPort		      1
     }
@@ -1425,10 +1426,10 @@ Model {
       ZOrder		      19
       SrcBlock		      "Varying Lowpass Filter"
       SrcPort		      1
-      Points		      [19, 0]
+      Points		      [25, 0]
       Branch {
 	ZOrder			21
-	Points			[0, 118; -394, 0]
+	Points			[0, 118; -420, 0]
 	DstBlock		"Sum"
 	DstPort			2
       }

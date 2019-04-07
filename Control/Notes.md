@@ -21,6 +21,8 @@ K_P = 0.6 * K_u = 1.302
 K_I = 1.2 * K_u / T_u = 53.143  
 K_D = 3 * K_u * T_u / 40 = 0.007975
 
+
+
 Which is clearly unstable, seen in Figure 1-4.
 
 ## Section 2 - Me Figuring it out
@@ -45,3 +47,13 @@ Settling Time: 23.4
 Figure 3-1 Matlab model implementing the tuned PID controller, with a second order filter.
 
 Figure 3-2 Comparison of the modeled behaviour vs the blackbox behaviour.
+
+
+
+
+
+## Questions
+
+6.3.  That was really an impulse with magnitude 10?  How did we do that?  
+I fixed some general latex stuff (\cos, \left(, etc)
+
